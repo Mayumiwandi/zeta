@@ -1,46 +1,65 @@
-import requests
+import requests, os, csv
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-def check_proxy(ip, port):
-    """
-    Mengecek status proxy dengan mengirim request ke http://httpbin.org/ip
-    Mengembalikan True jika proxy aktif, False jika tidak
-    """
-    try:
-        proxies = {
-            'http': f'http://{ip}:{port}',
-            'https': f'http://{ip}:{port}'
-        }
-        # Timeout 10 detik (sesuaikan jika perlu)
-        response = requests.get('http://httpbin.org/ip', proxies=proxies, timeout=10)
-        return response.status_code == 200
-    except Exception as e:
-        return False
+def cek_proxy(raw, url_template, file_alive, file_dead):
+  raws = raw[0].strip(), raw[1].strip()
+  api_url = url_template.format(ip=ip, port=port)
+  try:
+    respon = requests.get(api_url, timeout = 60)
+    respon.raise_for_status()
+    data = respon.json()
 
-# Baca file rawproxy.txt
-with open('rawproxy.txt', 'r') as file:
-    proxies = [line.strip().split(',') for line in file]
+    if data.get("status", "").lower() == "active":
+      print(f"porxy {ip}, dan port {port} AKTIF")
+      with open(file_alive, "a", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(row)
+      return True
 
-alive_proxies = []
-dead_proxies = []
 
-for proxy in proxies:
-    if len(proxy) != 4:  # Skip baris yang tidak valid
-        continue
-    
-    ip, port, country, org = proxy
-    if check_proxy(ip, port):
-        alive_proxies.append(proxy)
     else:
-        dead_proxies.append(proxy)
+      print(f"porxy {ip}, dan port {port} TIDAK AKTIF")
+      with open(file_dead, "a", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(row)
+        
+      return False
 
-# Tulis hasil ke file alive_proxy.txt
-with open('alive_proxy.txt', 'w') as file:
-    for proxy in alive_proxies:
-        file.write(','.join(proxy) + '\n')
+  except requests.exceptions.RequestException as e:
+    print(f" Error {ip}:{port} : {e} ")
+  except ValueError as ve:
+    print(f" Error JSON {ip}:{port} : {ve} ")
+  return False
+  
 
-# Tulis hasil ke file dead_proxy.txt
-with open('dead_proxy.txt', 'w') as file:
-    for proxy in dead_proxies:
-        file.write(','.join(proxy) + '\n')
+def main():
+  file_input = "/proxyList.txt"
+  file_alive = "alive.txt"
+  file_dead = "dead.txt"
+  url_template = 'https://check.installer.us.kg/check?ip={dom}:{rt}'
+  
 
-print(f"Proses selesai! {len(alive_proxies)} proxy aktif dan {len(dead_proxies)} proxy mati.")
+  open(file_alive, "w").close()
+  open(file_dead, "w").close()
+ 
+  try:
+      with open(file_input, "r") as f:
+          reader = csv.reader(f)
+          rows = list(reader)
+  except FileNotFoundError:
+      print(f"File {file_input} tidak ditemukan.")
+      return
+
+  with ThreadPoolExecutor(max_workers=50) as executor:
+      futures = [
+          executor.submit(cek_proxy, row, url_template, file_alive, file_dead)
+          for row in rows if len(row) >= 2
+      ]
+      for future in as_completed(futures):
+          future.result()  # Tunggu setiap proses selesai
+
+  print(f"Semua proxy yang ALIVE telah disimpan di {file_alive}.")
+  print(f"Semua proxy yang DEAD telah disimpan di {file_dead}.")
+
+if __name__ == "__main__":
+    main()
