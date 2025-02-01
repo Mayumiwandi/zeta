@@ -36,7 +36,7 @@ def main():
   file_input = "test/proxyList.txt"
   file_alive = "test/alive.txt"
   file_dead = "test/dead.txt"
-  url_template = 'https://check.installer.us.kg/check?ip={dom}:{rt}'
+  url_template = 'https://check.installer.us.kg/check?ip={ip}:{port}'
   
 
   open(file_alive, "w").close()
