@@ -46,8 +46,14 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
+        # Simpan perubahan sementara sebelum pull
+        git stash
+        
         # Tarik perubahan terbaru untuk menghindari konflik
         git pull origin main --rebase
+
+        # Ambil kembali perubahan yang telah disimpan
+        git stash pop || echo "⚠️ Tidak ada perubahan yang di-stash."
 
         # Tambahkan file ke staging area jika ada perubahan
         if [ -f test/alive.txt ]; then
