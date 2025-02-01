@@ -34,7 +34,7 @@ jobs:
     # Step 4: Run the Python script to update proxy status
     - name: 🔄 Update Proxy Status
       env:
-        IP_FILE: './cek/file.txt'
+        IP_FILE: './test/proxyList.txt'
         API_URL: 'https://check.installer.us.kg/check?ip={ip}:{port}' # Proxy check API URL
       run: |
         python ./test/Proxy_main.py
