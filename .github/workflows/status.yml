@@ -44,6 +44,8 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
+        git pull origin main --rebase
+
         # Tambahkan file ke staging area
         if [ -f cek/proxyList.txt ]; then
           git add cek/proxyList.txt && echo "✅ cek/proxyList.txt berhasil ditambahkan ke staging."
