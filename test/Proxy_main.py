@@ -33,7 +33,7 @@ def cek_proxy(raw, url_template, file_alive, file_dead):
   
 
 def main():
-  file_input = "/proxyList.txt"
+  file_input = "proxyList.txt"
   file_alive = "alive.txt"
   file_dead = "dead.txt"
   url_template = 'https://check.installer.us.kg/check?ip={dom}:{rt}'
