@@ -1,4 +1,3 @@
-
 name: 🌐 Update Proxy IP Status 2
 
 on:
@@ -18,6 +17,8 @@ jobs:
     # Step 1: Checkout the repository
     - name: 📂 Checkout Repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Agar bisa melakukan rebase dengan baik
 
     # Step 2: Set up Python environment
     - name: 🐍 Set Up Python
@@ -45,7 +46,10 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
-        # Tambahkan file ke staging area
+        # Tarik perubahan terbaru untuk menghindari konflik
+        git pull origin main --rebase
+
+        # Tambahkan file ke staging area jika ada perubahan
         if [ -f test/alive.txt ]; then
           git add test/alive.txt && echo "✅ test/alive.txt berhasil ditambahkan ke staging."
         else
@@ -59,9 +63,12 @@ jobs:
         fi
 
         # Commit hanya jika ada perubahan
-        if git diff --cached --exit-code; then
+        if git diff --quiet HEAD --; then
           echo "✅ Tidak ada perubahan yang perlu di-commit."
         else
           git commit -m "🔄 Update proxy IP status" && echo "✅ Perubahan berhasil di-commit."
-          git push && echo "🚀 Perubahan berhasil di-push ke repository."
+
+          # Gunakan token untuk push agar tidak ditolak
+          git push https://github.com/${{ github.repository }}.git HEAD:main
+          echo "🚀 Perubahan berhasil di-push ke repository."
         fi
