@@ -54,16 +54,16 @@ jobs:
         git stash pop || echo "⚠️ Tidak ada perubahan yang di-stash."
 
         # Tambahkan file ke staging area jika ada perubahan
-        if [ -f test/alive.txt ]; then
-          git add test/alive.txt && echo "✅ test/alive.txt berhasil ditambahkan ke staging."
+        if [ -f cek/alive.txt ]; then
+          git add test/alive.txt && echo "✅ cek/alive.txt berhasil ditambahkan ke staging."
         else
-          echo "⚠️ test/alive.txt tidak ditemukan."
+          echo "⚠️ cek/alive.txt tidak ditemukan."
         fi
 
-        if [ -f test/dead.txt ]; then
-          git add test/dead.txt && echo "✅ test/dead.txt berhasil ditambahkan ke staging."
+        if [ -f cek/dead.txt ]; then
+          git add test/dead.txt && echo "✅ cek/dead.txt berhasil ditambahkan ke staging."
         else
-          echo "⚠️ test/dead.txt tidak ditemukan."
+          echo "⚠️ cek/dead.txt tidak ditemukan."
         fi
 
         # Commit hanya jika ada perubahan
