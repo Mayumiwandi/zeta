@@ -55,13 +55,13 @@ jobs:
 
         # Tambahkan file ke staging area jika ada perubahan
         if [ -f cek/alive.txt ]; then
-          git add test/alive.txt && echo "✅ cek/alive.txt berhasil ditambahkan ke staging."
+          git add cek/alive.txt && echo "✅ cek/alive.txt berhasil ditambahkan ke staging."
         else
           echo "⚠️ cek/alive.txt tidak ditemukan."
         fi
 
         if [ -f cek/dead.txt ]; then
-          git add test/dead.txt && echo "✅ cek/dead.txt berhasil ditambahkan ke staging."
+          git add cek/dead.txt && echo "✅ cek/dead.txt berhasil ditambahkan ke staging."
         else
           echo "⚠️ cek/dead.txt tidak ditemukan."
         fi
