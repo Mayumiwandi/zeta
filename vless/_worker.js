@@ -1,21 +1,10 @@
 import { connect } from "cloudflare:sockets";
 
-const proxyListURL = 'https://raw.githubusercontent.com/jaka2m/botak/refs/heads/main/cek/proxyList.txt';
-const namaWeb = 'GEO PROJECT'
-const telegramku = 'https://t.me/sampiiiiu'
+const proxyListURL = 'https://raw.githubusercontent.com/Mayumiwandi/zeta/refs/heads/main/test/alive.txt';
+const namaWeb = 'Yumi PROJECT'
+const telegramku = 'https://t.me/Yumi_yui'
 const wildcards = [
-  'ava.game.naver.com',
-  'business.blibli.com',
-   'graph.instagram.com',
-   'quiz.int.vidio.com',
-   'live.iflix.com',
-   'support.zoom.us',
-   'blog.webex.com',
-   'investors.spotify.com',
-   'cache.netflix.com',
-   'zaintest.vuclip.com',
-   'ads.ruangguru.com',
-   'api.midtrans.com',
+   'quiz.int.vidio.com'
 ];
 // Global Variables
 let cachedProxyList = [];
@@ -381,7 +370,7 @@ export default {
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 GeoVPN | <a href="/">Privacy Policy</a> | <a href="/">Terms of Service</a></p>
+    <p>&copy; 2025 Yumi VPN | <a href="/">Privacy Policy</a> | <a href="/">Terms of Service</a></p>
   </footer>
 </body>
 </html>
