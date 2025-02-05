@@ -1,6 +1,6 @@
 name = "%worker_name%"
 main = "_worker.js"
-compatibility_date = "2025-02-06"
+compatibility_date = "2023-05-26"
 
 routes = [
   { pattern = "%worker_name%.%domain_name%", custom_domain = true },
