@@ -1,22 +1,10 @@
 name = "%worker_name%"
 main = "_worker.js"
-compatibility_date = "2023-05-26"
+compatibility_date = "2025-02-06"
 
 routes = [
   { pattern = "%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "ava.game.naver.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "quiz.int.vidio.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "business.blibli.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "graph.instagram.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "live.iflix.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "support.zoom.us.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "blog.webex.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "investors.spotify.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "cache.netflix.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "zaintest.vuclip.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "ads.ruangguru.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "mssdk24-normal-useast2a.tiktokv.com.%worker_name%.%domain_name%", custom_domain = true },
-  { pattern = "api.midtrans.com.%worker_name%.%domain_name%", custom_domain = true },
+  { pattern = "quiz.int.vidio.com.%worker_name%.%domain_name%", custom_domain = true }
 ]
 
 workers_dev = false
