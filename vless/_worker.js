@@ -198,9 +198,12 @@ export default {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description"
+    content="Hallo 👋 ini adalah Website Wolkers yang di jalankan di atas wolkers Cloudflare | Yumi VPN menyediakan Wolkers Gratis yang terdiri dari vless, trojan dan shadowsock.">
+  <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/23b35403-b253-4b7b-9875-a6e0a2e67e9d">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>GeoVPN - Your Ultimate VPN Solution</title>
+  <title>Yumi VPN</title>
   <style>
     /* Reset dan Gaya Dasar */
     * {
@@ -339,8 +342,8 @@ export default {
 <body>
   <!-- Header -->
   <header>
-    <h1>GeoVPN</h1>
-    <p>Your Ultimate VPN Solution for Secure and Fast Internet</p>
+    <h1>Yumi VPN</h1>
+    <p>layanan Wolkers Free</p>
   </header>
 
   <!-- Call to Action -->
@@ -406,8 +409,11 @@ async function handleSubRequest(hostnem) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description"
+      content="Hallo 👋 ini adalah Website Wolkers yang di jalankan di atas wolkers Cloudflare | Yumi VPN menyediakan Wolkers Gratis yang terdiri dari vless, trojan dan shadowsock.">
+    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/23b35403-b253-4b7b-9875-a6e0a2e67e9d">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sub Link</title>
+    <title> Yumi Sub Link</title>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -551,7 +557,7 @@ async function handleSubRequest(hostnem) {
 <body>
     <div class="container">
         <div class="card">
-            <h1 class="title">Geo Project</h1>
+            <h1 class="title">Yumi Project</h1>
             <form id="subLinkForm">
                 <div class="form-group">
                     <label for="app">Aplikasi</label>
@@ -1245,8 +1251,11 @@ function buildCountryFlag() {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description"
+      content="Hallo 👋 ini adalah Website Wolkers yang di jalankan di atas wolkers Cloudflare | Yumi VPN menyediakan Wolkers Gratis yang terdiri dari vless, trojan dan shadowsock.">
+    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/23b35403-b253-4b7b-9875-a6e0a2e67e9d">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FREE | VPN | CLOUDFLARE</title>
+    <title> Yumi VPN</title>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tailwindcss.com"></script>
