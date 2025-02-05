@@ -1,4 +1,4 @@
-name: 🌐 Update Proxy IP Status
+name: 🌐 Update Proxy IP Status ♻️
 
 on:
   # Schedule workflow to run every 3 hous at midnight
@@ -54,10 +54,10 @@ jobs:
         git stash pop || echo "⚠️ Tidak ada perubahan yang di-stash."
 
         # Tambahkan file ke staging area jika ada perubahan
-        if [ -f cek/alive.txt ]; then
-          git add cek/alive.txt && echo "✅ cek/alive.txt berhasil ditambahkan ke staging."
+        if [ -f cek/proxyList.txtt ]; then
+          git add cek/proxyList.txt && echo "✅ cek/proxyList.txt berhasil ditambahkan ke staging."
         else
-          echo "⚠️ cek/alive.txt tidak ditemukan."
+          echo "⚠️ cek/proxyList.txt tidak ditemukan."
         fi
 
         if [ -f cek/dead.txt ]; then
@@ -70,7 +70,7 @@ jobs:
         if git diff --quiet HEAD --; then
           echo "✅ Tidak ada perubahan yang perlu di-commit."
         else
-          git commit -m "🔄 Update proxy IP status" && echo "✅ Perubahan berhasil di-commit."
+          git commit -m "♻️ Update proxy IP status" && echo "✅ Perubahan berhasil di-commit."
 
           # Gunakan token untuk push agar tidak ditolak
           git push https://github.com/${{ github.repository }}.git HEAD:main
