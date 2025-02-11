@@ -2,8 +2,8 @@ name: 🌐 Update Proxy IP Status ♻️
 
 on:
   # Schedule workflow to run every 3 days at midnight
-  schedule:
-    - cron: '0 */2 * * *'
+ # schedule:
+  #  - cron: '0 */2 * * *'
 
   # Allow manual trigger of the workflow
   workflow_dispatch:
