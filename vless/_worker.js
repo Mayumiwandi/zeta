@@ -1,6 +1,6 @@
 import { connect } from "cloudflare:sockets";
 
-const proxyListURL = 'https://raw.githubusercontent.com/Mayumiwandi/zeta/refs/heads/main/test/alive.txt';
+const proxyListURL = 'https://raw.githubusercontent.com/FoolVPN-ID/Nautica/refs/heads/main/proxyList.txt';
 const namaWeb = 'YUMI-PROJECT'
 const telegramku = 'https://t.me/Yumi_yui'
 const wildcards = [
